@@ -1,0 +1,14 @@
+lib.copyright = COA
+lib.copyright {
+	10 = TEXT
+	10 {
+		data = date:U
+		strftime = %Y
+		noTrimWrap = |© | |
+	}
+
+	20 = TEXT
+	20 {
+		value < sitetitle
+	}
+}

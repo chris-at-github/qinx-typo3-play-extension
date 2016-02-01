@@ -1,0 +1,100 @@
+// ColPos Liste loeschen, sonst sind nicht angegebene Felder nicht bearbeitbar
+mod.SHARED.colPos_list >
+
+// Set the default label and flag
+mod.SHARED.defaultLanguageLabel = Deutsch
+mod.SHARED.defaultLanguageFlag = de.gif
+
+mod {
+	SHARED {
+		defaultLanguageLabel = Deutsch
+		defaultLanguageFlag = de
+	}
+
+	// Show the content element wizard with tabs (for consistency).
+	wizards {
+		newContentElement.renderMode = tabs
+		newContentElement.wizardItems.Content.header = FCE
+	}
+}
+
+# ttContent Layouts
+TCEFORM.tt_content {
+	layout {
+		addItems {
+			90 = LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_tt_content.layout_90
+		}
+		removeItems = 1,2,3
+	}
+
+	section_frame {
+		removeItems = 1, 5, 6, 10, 11, 12, 20, 21, 66
+	}
+}
+
+# RTE
+RTE {
+	default {
+		contentCSS = fileadmin/Resources/Public/Css/rte.css
+		showButtons := removeFromList(underline,line,table,textindicator,about)
+
+		proc {
+			allowedClasses := addToList(h1, h2, h3, h4)
+			allowedClasses := addToList(text-left, text-center, text-right, text-small)
+
+	    entryHTMLparser_db {
+        tags {
+          span.fixAttrib.style.unset = 1
+          span.rmTagIfNoAttrib = 1
+        }
+        removeTags := removeFromList(u)
+	    }
+		}
+
+		#buttons.textstyle.tags.span.allowedClasses := addToList()
+		#buttons.link.properties.class.allowedClasses := addToList()
+		buttons {
+			blockstyle.tags.td.allowedClasses := addToList(text-left, text-center, text-right)
+			formatblock.removeItems = header,footer,section,nav,aside,article,address
+		}
+	}
+
+	classes {
+		h1 {
+			name = Heading 1 (CSS-Class)
+		}
+
+		h2 {
+			name = Heading 2 (CSS-Class)
+		}
+
+		h3 {
+			name = Heading 3 (CSS-Class)
+		}
+
+		h4 {
+			name = Heading 4 (CSS-Class)
+		}
+
+		text-left {
+			name = LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_rte.text_left
+			value = text-align: left;
+		}
+
+		text-right {
+			name = LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_rte.text_right
+			value = text-align: right;
+		}
+
+		text-center {
+			name = LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_rte.text_center
+			value = text-align: center;
+		}
+	}
+}
+
+// FE RTE configuration (htmlArea RTE only)
+RTE.default.FE < RTE.default
+RTE.default.FE.FE >
+RTE.default.FE.userLinks >
+RTE.default.FE.userElements >

@@ -1,0 +1,18 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:layout name="Content"/>
+
+<f:section name="Configuration">
+	<flux:form id="fce-qxgo-card" label="Card">
+		<flux:field.select name="cssClass" label="Optional Well Style Class" items="small, normal, large" default="normal"/>
+	</flux:form>
+</f:section>
+
+<f:section name="Preview">
+	{cssClass}
+</f:section>
+
+<f:section name="Main">
+	{cssClass}
+</f:section>

@@ -1,0 +1,79 @@
+// Remove class="bodytext" from paragraphs
+lib.parseFunc_RTE {
+	nonTypoTagStdWrap.encapsLines {
+		addAttributes.P.class >
+		addAttributes.P.class.setOnly >
+	}
+}
+
+lib.stdheader {
+	3.headerClass.cObject {
+		30 = TEXT
+		30 {
+			field = header_layout
+			noTrimWrap = | h||
+			if {
+				isTrue.field = header_as_class
+
+				isTrue.if {
+					isTrue.field = header_layout
+				}
+			}
+		}
+	}
+
+	10 {
+		1.dataWrap.stdWrap.override = <header{register:headerClass}>|</header>
+		1.dataWrap.stdWrap.override.if {
+			isTrue.field = header_as_class
+		}
+
+		2.dataWrap.stdWrap < .1.dataWrap.stdWrap
+		3.dataWrap.stdWrap < .1.dataWrap.stdWrap
+		4.dataWrap.stdWrap < .1.dataWrap.stdWrap
+		5.dataWrap.stdWrap < .1.dataWrap.stdWrap
+	}
+}
+
+
+tt_content.stdWrap.outerWrap < tt_content.stdWrap.innerWrap
+tt_content.stdWrap.outerWrap.cObject = CASE
+tt_content.stdWrap.outerWrap.cObject {
+	key.field = section_frame
+	default.20 {
+		10.value = csc-default outer
+		20 >
+		30 >
+	}
+
+	90 < .default
+	90.20.10.value = csc-default csc-default-grey
+}
+
+tt_content.stdWrap.innerWrap.cObject = CASE
+tt_content.stdWrap.innerWrap.cObject {
+	default {
+		10.cObject.default.value = <div
+	}
+
+  key.field = layout
+
+  90 < .default
+  90 {
+  	20.10.value = inner indent-null
+  }
+
+  91 < .default
+  91 {
+  	20.10.value = inner indent-normal
+  }
+
+  92 < .default
+  92 {
+  	20.10.value = inner indent-small
+  }
+
+  default {
+  	20.10.value = inner indent-normal
+  }
+}

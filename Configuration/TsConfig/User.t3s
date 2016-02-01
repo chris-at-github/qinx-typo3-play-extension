@@ -1,0 +1,6 @@
+# add system clear cache button in backend
+options.clearCache.all = 1
+options.clearCache.system = 1
+
+# TypoScript Parsing after save in editor
+admPanel.override.tsdebug.forceTemplateParsing = 1

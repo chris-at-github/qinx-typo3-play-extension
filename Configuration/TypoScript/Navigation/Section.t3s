@@ -1,0 +1,17 @@
+navigation.section < tt_content.menu.default
+navigation.section {
+	special {
+		value.data = page:uid
+	}
+
+	stdWrap {
+		outerWrap = <nav class="navigation"><ul> | </ul></nav>
+	}
+
+	1 = TMENU
+	1 {
+		sectionIndex = 1
+		sectionIndex.type = header
+		NO.wrapItemAndSub = <li>|</li>
+	}
+}

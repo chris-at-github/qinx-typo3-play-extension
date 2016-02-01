@@ -1,0 +1,106 @@
+page = PAGE
+page {
+
+	// Add the icon that will appear in front of the url in the browser
+	// This icon will also be used for the bookmark menu in browsers
+	shortcutIcon = {$folders.public}/favicon.ico
+
+	headerData {
+		// Page title
+		10 = COA
+		10 {
+			wrap = <title> | </title>
+
+			10 = TEXT
+			10.field = subtitle // title
+
+			20 = TEXT
+			20.value = /
+			20.noTrimWrap = | | |
+
+			30 = TEXT
+			30.value < sitetitle
+		}
+	}
+
+	includeCSS {
+		10 = {$folders.css}/screen.css
+	}
+
+	meta {
+		viewport = {$meta.viewport}
+	}
+
+	bodyTagCObject = CASE
+	bodyTagCObject {
+		key.field = layout
+
+		1 = TEXT
+		1.value = <body class="page-fullscreen">
+
+		default = TEXT
+		default.value = <body>
+	}
+
+	10 = CASE
+	10 {
+		key.field = layout
+
+		# 1 = FLUIDTEMPLATE
+		# 1 {
+		# 	file = {$default.ext.templates}Blank.html
+		# }
+
+		default = FLUIDTEMPLATE
+		default {
+			file = EXT:qxplay/Resources/Private/Templates/Default.html
+
+			layoutRootPaths {
+				10 = EXT:qxplay/Resources/Private/Layouts
+				20 = {$folders.layouts}
+			}
+
+			templateRootPaths {
+				10 = EXT:qxplay/Resources/Private/Templates
+				20 = {$folders.templates}
+			}
+
+			partialRootPaths {
+				10 = EXT:qxplay/Resources/Private/Partials
+				20 = {$folders.partials}
+			}
+		}
+	}
+}
+
+
+[globalVar = LIT:1 = {$googleAnalytics.enabled}]
+	page.headerData.1452490323 = COA
+	page.headerData.1452490323 {
+		10 = TEXT
+		10.value = <script>
+
+		20 = TEXT
+		20.value (
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		)
+
+		100 = TEXT
+		100 {
+			value = {$googleAnalytics.trackingId}
+			wrap = ga('create', '|', 'auto');
+		}
+
+		110 = TEXT
+		110.value = ga('set', 'anonymizeIp', true);
+
+		910 = TEXT
+		910.value =  ga('send', 'pageview');
+
+		920 = TEXT
+		920.value = </script>
+	}
+[global]

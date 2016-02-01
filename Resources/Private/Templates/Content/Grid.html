@@ -1,0 +1,44 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<div xmlns="http://www.w3.org/1999/xhtml"
+		 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+		 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers">
+
+	<f:layout name="Content"/>
+
+	<f:section name="Configuration">
+		<flux:form id="fce-qxgo-grid" label="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.title" description="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.description" options="{icon: '{f:uri.resource(path: \'Icons/Content/Grid.png\')}'}">
+			<v:variable.set name="unit" value="{v:math.division(a: 100, fail: 1, b: 12)}"/>
+
+			<flux:form.section name="rows">
+				<flux:form.object name="column" label="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.column">
+					<flux:field.select name="width" label="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.column_width" maxItems="1" items="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12" />
+					<flux:field.select name="offset" label="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.column_offset" maxItems="1" items=", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"/>
+				</flux:form.object>
+			</flux:form.section>
+
+			<flux:grid>
+				<flux:grid.row name="row">
+					<f:for each="{rows}" as="obj" iteration="iteration">
+						<flux:grid.column name="c{iteration.cycle}" label="col-{obj.column.width}" style="width: {v:math.product(a: '{v:variable.get(name: \'unit\')}', fail: 1, b: obj.column.width)}%" />
+					</f:for>
+				</flux:grid.row>
+			</flux:grid>
+
+		</flux:form>
+	</f:section>
+
+	<f:section name="Preview">
+		<flux:widget.grid />
+	</f:section>
+
+	<f:section name="Main">
+		<div class="row">
+			<f:for each="{rows}" as="obj" iteration="iteration">
+				<div class="col-xs-{obj.column.width} {f:if(condition: obj.column.offset, then: 'col-xs-offset-{obj.column.offset}')}">
+					<flux:content.render area="c{iteration.cycle}" />
+				</div>
+			</f:for>
+		</div>
+	</f:section>
+</div>
