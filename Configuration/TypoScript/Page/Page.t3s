@@ -24,7 +24,7 @@ page {
 	}
 
 	includeCSS {
-		10 = {$folders.css}/screen.css
+		10 = EXT:qxplay/Resources/Public/Css/screen.css
 	}
 
 	meta {
