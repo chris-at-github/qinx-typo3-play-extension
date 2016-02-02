@@ -74,6 +74,6 @@ tt_content.stdWrap.innerWrap.cObject {
   }
 
   default {
-  	20.10.value = inner indent-normal
+  	20.10.value = inner container
   }
 }

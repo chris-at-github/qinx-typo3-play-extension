@@ -1,0 +1,266 @@
+// Clearfix
+// ----------------------------------------------------------------------------------------------------------------
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix() {
+  &:before, &:after {
+    content: ' '; // 1
+    display: table; // 2
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// ----------------------------------------------------------------------------------------------------------------
+// Placeholder text
+@mixin placeholder($line-height: 20px, $color: $grey-light) {
+  &:-moz-placeholder {
+    color: $color;
+  } // Firefox 4-18
+
+  &::-moz-placeholder {
+    color: $color;
+  } // Firefox 19+
+
+  &:-ms-input-placeholder {
+    color: $color;
+  } // Internet Explorer 10+
+
+  &::-webkit-input-placeholder {
+    color: $color;
+  } // Safari and Chrome
+}
+
+// Box sizing
+// ----------------------------------------------------------------------------------------------------------------
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+// Transition
+// ----------------------------------------------------------------------------------------------------------------
+@mixin transition($transition) {
+  -webkit-transition: $transition; /* For Safari 3.1 to 6.0 */
+  transition: $transition;
+}
+
+@mixin transition-all($duration: 0.3s, $delay: 0s, $property: all) {
+  -webkit-transition: $property $duration ease $delay; /* For Safari 3.1 to 6.0 */
+  transition: $property $duration ease $delay;
+}
+
+@mixin transition-one($property: all, $duration: 0.3s, $delay: 0s) {
+  transition: $property $duration ease $delay;
+}
+
+// Opacity
+// ----------------------------------------------------------------------------------------------------------------
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: "alpha(opacity={$opacity-ie})";
+}
+
+// Hyphens
+// ----------------------------------------------------------------------------------------------------------------
+@mixin hyphens($mode: auto) {
+  word-wrap: break-word;
+  -webkit-hyphens: $mode;
+     -moz-hyphens: $mode;
+      -ms-hyphens: $mode; // IE10+
+       -o-hyphens: $mode;
+          hyphens: $mode;
+}
+
+// Rotate
+// ----------------------------------------------------------------------------------------------------------------
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+      -ms-transform: rotate($deg);
+          transform: rotate($deg);
+}
+
+// Scale
+// ----------------------------------------------------------------------------------------------------------------
+@mixin scale($x: 1, $y: 1) {
+  -webkit-transform: scale($x, $y);
+      -ms-transform: scale($x, $y);
+          transform: scale($x, $y);
+}
+
+// Grid
+// ----------------------------------------------------------------------------------------------------------------
+// Creates a wrapper for a series of columns
+@mixin make-row($gutter: $grid-gutter-width) {
+  margin-left: ceil(($gutter / -2));
+  margin-right: floor(($gutter / -2));
+  @include clearfix;
+}
+
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
+  @for $i from (1 + 1) through $grid-columns {
+    $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+  }
+  #{$list} {
+    position: relative;
+    // Prevent columns from collapsing when empty
+    min-height: 1px;
+    // Inner gutter via padding
+    padding-left: ceil(($grid-gutter-width / 2));
+    padding-right: floor(($grid-gutter-width / 2));
+  }
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
+  @for $i from (1 + 1) through $grid-columns {
+    $list: "#{$list}, .col-#{$class}-#{$i}";
+  }
+  #{$list} {
+    float: left;
+  }
+}
+
+@mixin calc-grid-column($index, $class, $type) {
+  @if ($type == width) and ($index > 0) {
+    .col-#{$class}-#{$index} {
+      width: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == push) and ($index > 0) {
+    .col-#{$class}-push-#{$index} {
+      left: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == push) and ($index == 0) {
+    .col-#{$class}-push-0 {
+      left: auto;
+    }
+  }
+  @if ($type == pull) and ($index > 0) {
+    .col-#{$class}-pull-#{$index} {
+      right: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == pull) and ($index == 0) {
+    .col-#{$class}-pull-0 {
+      right: auto;
+    }
+  }
+  @if ($type == offset) {
+    .col-#{$class}-offset-#{$index} {
+      margin-left: percentage(($index / $grid-columns));
+    }
+  }
+}
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin loop-grid-columns($columns, $class, $type) {
+  @for $i from 0 through $columns {
+    @include calc-grid-column($i, $class, $type);
+  }
+}
+
+// Create grid for specific class
+@mixin make-grid($class) {
+  @include float-grid-columns($class);
+  @include loop-grid-columns($grid-columns, $class, width);
+  @include loop-grid-columns($grid-columns, $class, pull);
+  @include loop-grid-columns($grid-columns, $class, push);
+  @include loop-grid-columns($grid-columns, $class, offset);
+
+	.col-#{$class}-right {
+		float: right;
+		text-align: right;
+	}
+}
+
+// Fonts
+// ----------------------------------------------------------------------------------------------------------------
+@mixin font-default($font-size: $font-default-size, $line-height: 1.4) {
+  font: normal $font-size $font-default;
+  line-height: $line-height;
+  color: $grey-dark;
+}
+
+@mixin font-icon() {
+  font-family: 'icon' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Animation | Keyframes
+// ----------------------------------------------------------------------------------------------------------------
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($animation) {
+  -webkit-animation: #{$animation};
+  -moz-animation: #{$animation};
+  -ms-animation: #{$animation};
+  -o-animation: #{$animation};
+  animation: #{$animation};
+}
+
+// Animation Rotate
+// ----------------------------------------------------------------------------------------------------------------
+@mixin keyframes-rotate($from, $to) {
+  @include keyframes(rotate) {
+    from {
+      transform: rotate($from);
+    }
+
+    to {
+      transform: rotate($to);
+    }
+  }
+}
+
+@mixin animation-rotate($duration: 1s, $delay: 0s) {
+  @include animation('rotate #{$duration} #{$delay} infinite linear');
+}
+
+// Color Functions
+// http://webdesign.tutsplus.com/tutorials/bourbon-on-the-rocks-cool-functions-to-improve-your-sass--cms-24798
+// ----------------------------------------------------------------------------------------------------------------
+@function tint($color, $percent) {
+	@return mix(#fff, $color, $percent);
+}
+
+@function shade($color, $percent) {
+	@return mix(#000, $color, $percent);
+}

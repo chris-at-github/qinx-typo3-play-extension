@@ -1,0 +1,159 @@
+// ----------------------------------------------------------------------------------
+// Forms
+input[type='text'], input[type='password'], textarea, select {
+	& {
+		width: 100%;
+		padding: 1px 3px;
+		line-height: 20px;
+		border: 1px solid $grey-lighter;
+	}
+
+	&:focus {
+		outline: 0;
+		border-color: $grey;
+	}
+
+	&.disabled {
+		background: $grey-lighter;
+	}
+}
+
+.form-item {
+	margin: 10px 0 0 0;
+}
+
+.form-item .form-item {
+	margin-top: 0;
+}
+
+.form-label {
+	display: block;
+}
+
+.form-field {
+	position: relative;
+}
+
+/* button
+----------------------------------------------------------------------------------------*/
+.form-actions {
+	& {
+		margin: 10px 0 0 0;
+	}
+
+	input[type='submit'], button, .button {
+		margin: 0 5px 0 0;
+		vertical-align: middle;
+	}
+}
+
+.form-actions-right {
+	& {
+		text-align: right;
+	}
+
+	input[type='submit'], button, .button {
+		margin: 0 0 0 5px;
+	}
+}
+
+input[type='submit'], button, .button {
+	& {
+		margin: 0;
+		padding: 7px 15px;
+		border: 0;
+		background: $grey-lighter;
+		font-weight: normal;
+		color: $black;
+		line-height: 1;
+		vertical-align: top;
+		cursor: pointer;
+	}
+
+	&:hover, &:focus, &:active {
+		background-color: darken($grey-lighter, 15%);
+		color: $white;
+		text-decoration: none;
+	}
+}
+
+a.button {
+	display: inline-block;
+}
+
+.button-submit {
+	background-color: $color-brand;
+	color: $white;
+}
+
+.button-submit:hover, .button-submit:focus {
+	background-color: $color-brand-dark;
+	color: $black;
+}
+
+.button-small {
+	padding: 5px 9px;
+}
+
+.button-large {
+	padding: 12px 16px;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+
+/* form-inline
+----------------------------------------------------------------------------------------*/
+.form-inline {
+	input, textarea, select, input[type='submit'], button, .button {
+		margin: 0;
+	}
+
+	.form-item, .form-field, .form-actions {
+		margin: 0 1px 0 0;
+		float: left;
+	}
+
+	.form-radio, .form-checkbox {
+		margin: 0 10px 0 0;
+  }
+
+	.form-label {
+		display: none;
+	}
+
+	input[type='submit'], button, .button {
+		min-height: 24px;
+		padding: 5px 15px;
+	}
+}
+
+/* checkbox | radio
+----------------------------------------------------------------------------------------*/
+.form-radio, .form-checkbox {
+	.form-label {
+		float: left;
+	}
+
+	.form-field {
+		& {
+			float: left;
+			margin: 0 4px 0 0;
+		}
+
+		input {
+			position: relative;
+			top: 2px;
+			left: 1px;
+		}
+	}
+}
+
+.form-radio-inline, .form-checkbox-inline  {
+	.form-item {
+		float: left;
+	}
+
+	.form-item + .form-item {
+		padding: 0 0 0 10px;
+	}
+}

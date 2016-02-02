@@ -1,0 +1,18 @@
+@media screen and (max-width: $breakpoint-xs) {
+	[class^="col"] + [class^="col"] {
+		margin-top: 10px;
+	}
+}
+
+@media screen and (min-width: $breakpoint-xs) {
+	.row {
+		@include make-row;
+	}
+
+	@include make-grid-columns;
+	@include make-grid(xs);
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+	@include make-grid(sm);
+}

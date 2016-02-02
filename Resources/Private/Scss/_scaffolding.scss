@@ -1,0 +1,146 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// HTML
+* {
+	& {
+		box-sizing: border-box;
+
+		transition-property: color, background, border-color;
+		transition-duration: $transition-base-duration;
+		transition-timing-function: $transition-base-function;
+	}
+
+	&:before, &:after {
+		box-sizing: border-box;
+
+		transition-property: color, background, border-color;
+		transition-duration: $transition-base-duration;
+		transition-timing-function: $transition-base-function;
+	}
+}
+
+body {
+  margin: 10px;
+	font-family: $font-default;
+	font-size: $font-default-size;
+	color: $font-default-color;
+	line-height: 1.4;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	& {
+		margin: 15px 0 0 0;
+		font-family: $font-heading-family;
+		font-weight: 400;
+		line-height: 1.1;
+		color: $font-heading-color;
+
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	small, .small {
+		font-size: 90%;
+		line-height: 1;
+	}
+}
+
+h1, .h1 {
+	font-size: $font-heading-h1;
+}
+
+h2, .h2 {
+	font-size: $font-heading-h2;
+}
+
+h3, .h3 {
+	font-size: $font-heading-h3;
+}
+
+h4, .h4 {
+	font-size: $font-heading-h4;
+}
+
+h5, .h5 {
+	font-size: $font-heading-h5;
+}
+
+p, table, ul, ol, dl, fieldset {
+	margin: 10px 0 0 0;
+}
+
+strong, b {
+	font-weight: 700;
+}
+
+a {
+	& {
+		color: $color-brand;
+		text-decoration: none;
+	}
+
+	&:hover, &:focus {
+		color: $color-brand-dark;
+	}
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	& {
+		position: relative;
+		margin: 5px 0 0 0;
+		padding: 0 0 0 15px;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 8px; left: 3px;
+		border: 2px solid $font-default-color;
+	}
+}
+
+nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		margin: 0;
+		padding: 0;
+		background: none;
+	}
+
+	li:before {
+		display: none;
+	}
+
+	a {
+		&:hover, &:focus, &:active {
+			text-decoration: none;
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Basic classes
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-small {
+	font-size: 85%;
+}

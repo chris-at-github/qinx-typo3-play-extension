@@ -1,0 +1,55 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Colors
+$grey-dark: 		#333 !default;
+$grey-darker: 	#666 !default;
+$grey: 					#999 !default;
+$grey-lighter: 	#ccc !default;
+$grey-light: 		#eee !default;
+
+
+$white: 	#fff;
+$black:		#000;
+
+$color-brand: 			#03a9f4;
+$color-brand-dark: 	#009ee5;
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Fonts
+$font-default: 				'Times New', serif !default;
+$font-default-size:		14px !default;
+$font-default-color:	$grey-dark !default;
+
+$font-heading-family: $font-default !default;
+$font-heading-color: 	$font-default-color !default;
+
+$font-heading-h1: 52px !default;
+$font-heading-h2: 34px !default;
+$font-heading-h3: 24px !default;
+$font-heading-h4: 18px !default;
+$font-heading-h5: 14px !default;
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Breadpoint
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 768px !default;
+$breakpoint-md: 980px !default;
+$breakpoint-lg: 1200px !default;
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Grid
+$grid-columns: 12 !default;
+$grid-gutter-width: 20px !default;
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Transition
+$transition-base-duration: 0.15s;
+$transition-base-function: ease;
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Border Radius
+$border-radius-default:	2px;
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Navigation
+$navigation-breakpoint: $breakpoint-sm !default;
+$navigation-duration: $transition-base-duration !default;

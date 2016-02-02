@@ -1,0 +1,65 @@
+.navigation {
+	a {
+		display: block;
+		text-decoration: none;
+	}
+}
+
+.navigation-horizontal {
+	& > ul {
+		@include clearfix;
+	}
+
+	& > ul > li {
+		& {
+			float: left;
+		}
+
+		a {
+			padding: 0 5px;
+		}
+	}
+
+	&.navigation-right {
+		& {
+			@include clearfix;
+		}
+
+		ul {
+			float: right;
+		}
+	}
+}
+
+.navigation-vertical {
+	& > ul > li {
+		display: block;
+	}
+}
+
+.navigation-dropdown {
+	& > ul > li {
+		& {
+			position: relative;
+		}
+
+		&:hover, &:focus {
+			& > ul {
+				max-height: 1000px;
+			}
+		}
+	}
+
+	& > ul > li > ul {
+		& {
+			position: absolute;
+			top: 20px; left: 0;
+			z-index: 5;
+			min-width: 200px;
+			max-height: 0;
+			overflow: hidden;
+			background: $white;
+			@include transition-one(max-height);
+		}
+	}
+}
