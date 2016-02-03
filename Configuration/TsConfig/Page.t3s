@@ -28,6 +28,9 @@ TCEFORM.tt_content {
 	}
 
 	section_frame {
+		addItems {
+			90 = LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_tt_content.section_frame_90
+		}
 		removeItems = 1, 5, 6, 10, 11, 12, 20, 21, 66
 	}
 }
