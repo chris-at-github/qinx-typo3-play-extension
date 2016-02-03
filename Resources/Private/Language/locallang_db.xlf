@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-09-18T09:45:34Z" product-name="qxplay">
+		<header/>
+		<body>
+			<trans-unit id="tx_qxplay_domain_model_content.header_as_class">
+				<source>Header as Class</source>
+			</trans-unit>
+
+			<trans-unit id="tx_qxplay_tt_content.layout_indent_null">
+				<source>Full Width</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_tt_content.layout_indent_normal">
+				<source>Normal Width</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_tt_content.layout_indent_small">
+				<source>Small Width</source>
+			</trans-unit>
+
+			<trans-unit id="tx_qxplay_tt_content.section_frame_grey">
+				<source>Grey Background</source>
+			</trans-unit>
+
+			<trans-unit id="tx_qxplay_rte.text_left">
+				<source>Align left</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_rte.text_right">
+				<source>Align right</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_rte.text_center">
+				<source>Align center</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_rte.text_small">
+				<source>Small text</source>
+			</trans-unit>
+
+			<trans-unit id="tx_qxplay_fce.grid.title">
+				<source>Grid</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.grid.description">
+				<source>Create a dynamic grid column row element</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.grid.column">
+				<source>Column</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.grid.column_width">
+				<source>Column width</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.grid.column_offset">
+				<source>Column offset</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

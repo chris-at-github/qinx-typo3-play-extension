@@ -7,13 +7,13 @@
 	<f:layout name="Content"/>
 
 	<f:section name="Configuration">
-		<flux:form id="fce-qxgo-grid" label="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.title" description="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.description" options="{icon: '{f:uri.resource(path: \'Icons/Content/Grid.png\')}'}">
+		<flux:form id="fce-qxplay-grid" label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.grid.title" description="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.grid.description" options="{icon: '{f:uri.resource(path: \'Icons/Content/Grid.png\')}'}">
 			<v:variable.set name="unit" value="{v:math.division(a: 100, fail: 1, b: 12)}"/>
 
 			<flux:form.section name="rows">
-				<flux:form.object name="column" label="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.column">
-					<flux:field.select name="width" label="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.column_width" maxItems="1" items="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12" />
-					<flux:field.select name="offset" label="LLL:EXT:qxgo/Resources/Private/Language/locallang_db.xlf:tx_qxgo_fce.grid.column_offset" maxItems="1" items=", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"/>
+				<flux:form.object name="column" label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.grid.column">
+					<flux:field.select name="width" label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.grid.column_width" maxItems="1" items="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12" />
+					<flux:field.select name="offset" label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.grid.column_offset" maxItems="1" items=", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"/>
 				</flux:form.object>
 			</flux:form.section>
 
