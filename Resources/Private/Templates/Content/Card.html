@@ -6,30 +6,10 @@
 <f:section name="Configuration">
 	<flux:form id="fce-qxgo-card" label="Card">
 		<flux:field.select name="cssClass" label="Optional Well Style Class" items="small, normal, large" default="normal" />
+		<flux:field.select name="type" label="Type" items="{0: 'single', 1: 'multiple'}" default="0" requestUpdate="true" />
 
-		<flux:field.multiRelation name="page" label="Page" table="pages" />
-		<flux:field.multiRelation name="pages" label="Page" table="pages" multiple="true" size="5" maxItems="5" />
-
-		<f:comment>
-			<flux:field.relation name="pages"
-				label="Pages"
-				multiple="true"
-				size="10"
-				minItems="0"
-				maxItems="10" table="pages"
-
-			>
-				<flux:wizard.add label="ADD" hideParent="1" table="pages">
-					<!-- tag content - may be ignored! -->
-				</flux:wizard.add>
-			</flux:field.relation>
-
-			<flux:field.select name="relatedUids" items="{}">
-				<flux:wizard.suggest table="pages" />
-			</flux:field.select>
-
-			<flux:field.tree name="foo" label="NULL" table="pages" parentField="pid" size="10" maxItems="1"></flux:field.tree>
-		</f:comment>
+		<flux:field.multiRelation name="page" label="Page" table="pages" displayCond="FIELD:type:=:0" />
+		<flux:field.multiRelation name="pages" label="Pages" table="pages" multiple="true" size="5" maxItems="3" displayCond="FIELD:type:=:1" />
 
 	</flux:form>
 </f:section>
@@ -40,4 +20,12 @@
 
 <f:section name="Main">
 	{cssClass}
+
+	<f:debug>{type}</f:debug>
+
+	<f:if condition="{pages}">
+		<v:iterator.explode content="{pages}" glue="," as="x">
+			<f:debug>{x}</f:debug>
+		</v:iterator.explode>
+	</f:if>
 </f:section>
