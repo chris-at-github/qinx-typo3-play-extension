@@ -153,11 +153,12 @@ tt_content.stdWrap.innerWrap.cObject {
 
 				40 = TEXT
 				40 {
-					noTrimWrap = | csc-default-parent||
+					noTrimWrap = | csc-default-children||
 
 					noTrimWrap.if {
 						value.field = tx_flux_parent
-						equals = 0
+						isGreaterThan = 1
+						negate = 1
 					}
 				}
 			}
