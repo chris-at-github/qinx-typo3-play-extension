@@ -35,36 +35,34 @@ lib.stdheader {
 	}
 }
 
-tt_content.stdWrap.outerWrap < tt_content.stdWrap.innerWrap
-tt_content.stdWrap.outerWrap.cObject = CASE
-tt_content.stdWrap.outerWrap.cObject {
-	key.field = section_frame
-	default.20 {
-		10 {
+tt_content.stdWrap.innerWrap.cObject {
+	default {
+		20.10 {
 			stdWrap.cObject = COA
 			stdWrap.cObject {
-				10 = CASE
+				10 = TEXT
 				10 {
-					key.field = section_frame
+					value = container
 
-					90 = TEXT
-					90.value = csc-default container container-grey
-
-					default = TEXT
-					default.value = csc-default container
+					value.if {
+						value.field = tx_flux_parent
+						isGreaterThan = 1
+					}
 				}
 
-				20 = TEXT
+				20 = CASE
 				20 {
-					value.stdWrap = TEXT
-					value {
-						noTrimWrap = | outer||
+					key.field = section_frame
 
-						if {
-							value.field = tx_flux_parent
-							isGreaterThan = 1
-						}
+					default = TEXT
+					default {
+						value = csc-default
+						noTrimWrap = | ||
 					}
+
+
+					90 < .default
+					90.value = csc-default csc-section-90
 				}
 
 				30 = CASE
@@ -73,120 +71,8 @@ tt_content.stdWrap.outerWrap.cObject {
 
 					90 = TEXT
 					90 {
-						value = layout-90
+						value = csc-layout-90
 						noTrimWrap = | ||
-					}
-				}
-
-				40 = TEXT
-				40 {
-					field = tx_fed_fcefile
-					required = 1
-					case = lower
-					noTrimWrap = | fce-||
-
-					replacement {
-						10 {
-							search = qxplay:
-							replace =
-						}
-
-						20 {
-							search = .html
-							replace =
-						}
-					}
-				}
-			}
-		}
-
-		20 {
-			stdWrap {
-				if {
-					value.field = tx_flux_parent
-					isGreaterThan = 1
-					negate = 1
-				}
-			}
-		}
-
-		30.stdWrap  < .20.stdWrap
-	}
-}
-
-tt_content.stdWrap.innerWrap.cObject = CASE
-tt_content.stdWrap.innerWrap.cObject {
-	if {
-		value.field = tx_flux_parent
-		isGreaterThan = 1
-	}
-
-	default {
-		10.cObject.default.value = <div
-	}
-
-	key.field = layout
-
-	default {
-		20.10.value = inner
-	}
-}
-
-xtt_content.stdWrap.innerWrap.cObject {
-	default {
-		20.10 {
-			stdWrap.cObject = COA
-			stdWrap.cObject {
-				10 = CASE
-				10 {
-					key.field = section_frame
-
-					90 = TEXT
-					90.value = csc-default container container-grey
-
-					default = TEXT
-					default.value = csc-default container
-				}
-
-				20 = CASE
-				20 {
-					key.field = layout
-
-					90 = TEXT
-					90 {
-						value = layout-90
-						noTrimWrap = | ||
-					}
-				}
-
-				30 = TEXT
-				30 {
-					field = tx_fed_fcefile
-					required = 1
-					case = lower
-					noTrimWrap = | fce-||
-
-					replacement {
-						10 {
-							search = qxplay:
-							replace =
-						}
-
-						20 {
-							search = .html
-							replace =
-						}
-					}
-				}
-
-				40 = TEXT
-				40 {
-					noTrimWrap = | csc-default-children||
-
-					noTrimWrap.if {
-						value.field = tx_flux_parent
-						isGreaterThan = 1
-						negate = 1
 					}
 				}
 			}

@@ -7,18 +7,12 @@
 				<source>Header as Class</source>
 			</trans-unit>
 
-			<trans-unit id="tx_qxplay_tt_content.layout_indent_null">
-				<source>Full Width</source>
-			</trans-unit>
-			<trans-unit id="tx_qxplay_tt_content.layout_indent_normal">
-				<source>Normal Width</source>
-			</trans-unit>
-			<trans-unit id="tx_qxplay_tt_content.layout_indent_small">
-				<source>Small Width</source>
+			<trans-unit id="tx_qxplay_tt_content.layout_90">
+				<source>Layout 90</source>
 			</trans-unit>
 
-			<trans-unit id="tx_qxplay_tt_content.section_frame_grey">
-				<source>Grey Background</source>
+			<trans-unit id="tx_qxplay_tt_content.section_frame_90">
+				<source>Section Frame 90</source>
 			</trans-unit>
 
 			<trans-unit id="tx_qxplay_rte.text_left">
