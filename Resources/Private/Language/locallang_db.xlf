@@ -28,7 +28,7 @@
 				<source>Small text</source>
 			</trans-unit>
 
-			<trans-unit id="tx_qxplay_fce.grid.title">
+			<trans-unit id="tx_qxplay_fce.page.title">
 				<source>Grid</source>
 			</trans-unit>
 			<trans-unit id="tx_qxplay_fce.grid.description">
@@ -42,6 +42,13 @@
 			</trans-unit>
 			<trans-unit id="tx_qxplay_fce.grid.column_offset">
 				<source>Column offset</source>
+			</trans-unit>
+
+			<trans-unit id="tx_qxplay_fce.page.title">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.page.description">
+				<source>Create page teaser element, that read all necessary informations from the target page</source>
 			</trans-unit>
 		</body>
 	</file>

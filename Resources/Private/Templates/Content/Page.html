@@ -4,8 +4,9 @@
 <f:layout name="Content"/>
 
 <f:section name="Configuration">
-	<flux:form id="fce-qxgo-card" label="Card">
-		<flux:field.select name="cssClass" label="Optional Well Style Class" items="small, normal, large" default="normal" />
+	<flux:form id="fce-qxplay-card" label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.title"
+						 description="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.description"
+						 options="{icon: '{f:uri.resource(path: \'Icons/Content/Page.svg\')}'}">
 		<flux:field.select name="type" label="Type" items="{0: 'single', 1: 'multiple'}" default="0" requestUpdate="true" />
 
 		<flux:field.multiRelation name="page" label="Page" table="pages" displayCond="FIELD:type:=:0" />
@@ -19,13 +20,11 @@
 </f:section>
 
 <f:section name="Main">
-	{cssClass}
-
-	<f:debug>{type}</f:debug>
-
-	<f:if condition="{pages}">
-		<v:iterator.explode content="{pages}" glue="," as="x">
-			<f:debug>{x}</f:debug>
-		</v:iterator.explode>
+	<f:if condition="{type} == 0">
+		<f:render section="Single" arguments="{page: page}" />
 	</f:if>
+</f:section>
+
+<f:section name="Single">
+	<f:debug>{page}</f:debug>
 </f:section>
