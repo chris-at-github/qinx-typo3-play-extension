@@ -7,6 +7,10 @@
 				<source>Header as Class</source>
 			</trans-unit>
 
+			<trans-unit id="tx_qxplay_pages.layout_90">
+				<source>Layout 90</source>
+			</trans-unit>
+
 			<trans-unit id="tx_qxplay_tt_content.layout_90">
 				<source>Layout 90</source>
 			</trans-unit>

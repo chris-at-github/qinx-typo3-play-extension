@@ -19,6 +19,17 @@ mod {
 }
 
 # ttContent Layouts
+TCEFORM.pages {
+	layout {
+		addItems {
+			90 = LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_pages.layout_90
+		}
+
+		removeItems = 1,2,3
+	}
+}
+
+# ttContent Layouts
 TCEFORM.tt_content {
 	layout {
 		addItems {

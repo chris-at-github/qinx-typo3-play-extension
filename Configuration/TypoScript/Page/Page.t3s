@@ -35,8 +35,8 @@ page {
 	bodyTagCObject {
 		key.field = layout
 
-		1 = TEXT
-		1.value = <body class="page-fullscreen">
+		90 = TEXT
+		90.value = <body class="page-layout-90">
 
 		default = TEXT
 		default.value = <body>
