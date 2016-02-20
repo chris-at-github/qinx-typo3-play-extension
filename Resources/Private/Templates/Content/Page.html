@@ -47,8 +47,13 @@
 	<f:if condition="{type} == 0">
 		<f:render section="Single" arguments="{uid: uid}" />
 	</f:if>
+	<f:if condition="{type} == 1">
+		<f:render section="Multiple" arguments="{uids: uids}"/>
+	</f:if>
 </f:section>
 
 <f:section name="Single">
-	<f:debug>{uid}</f:debug>
+</f:section>
+
+<f:section name="Multiple">
 </f:section>
