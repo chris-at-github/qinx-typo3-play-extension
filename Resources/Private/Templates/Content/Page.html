@@ -4,27 +4,51 @@
 <f:layout name="Content"/>
 
 <f:section name="Configuration">
-	<flux:form id="fce-qxplay-card" label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.title"
-						 description="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.description"
-						 options="{icon: '{f:uri.resource(path: \'Icons/Content/Page.svg\')}'}">
-		<flux:field.select name="type" label="Type" items="{0: 'single', 1: 'multiple'}" default="0" requestUpdate="true" />
+	<flux:form
+		id="fce-qxplay-card"
+		label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.title"
+		description="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.description"
+		options="{icon: '{f:uri.resource(path: \'Icons/Content/Page.svg\')}'}">
 
-		<flux:field.multiRelation name="page" label="Page" table="pages" displayCond="FIELD:type:=:0" />
-		<flux:field.multiRelation name="pages" label="Pages" table="pages" multiple="true" size="5" maxItems="3" displayCond="FIELD:type:=:1" />
+		<flux:field.select
+			name="type"
+			label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.type"
+			items="{
+				0: 'LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.single',
+				1: 'LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.multiple'
+			}"
+			default="0"
+			requestUpdate="true"
+		/>
+
+		<flux:field.multiRelation
+			name="uid"
+			label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.uid"
+			table="pages"
+			displayCond="FIELD:type:=:0"
+		/>
+
+		<flux:field.multiRelation
+			name="uids"
+			label="LLL:EXT:qxplay/Resources/Private/Language/locallang_db.xlf:tx_qxplay_fce.page.uids"
+			table="pages"
+			multiple="true"
+			size="5"
+			maxItems="10"
+			displayCond="FIELD:type:=:1"
+		/>
 
 	</flux:form>
 </f:section>
 
-<f:section name="Preview">
-	{cssClass}
-</f:section>
+<f:section name="Preview" />
 
 <f:section name="Main">
 	<f:if condition="{type} == 0">
-		<f:render section="Single" arguments="{page: page}" />
+		<f:render section="Single" arguments="{uid: uid}" />
 	</f:if>
 </f:section>
 
 <f:section name="Single">
-	<f:debug>{page}</f:debug>
+	<f:debug>{uid}</f:debug>
 </f:section>

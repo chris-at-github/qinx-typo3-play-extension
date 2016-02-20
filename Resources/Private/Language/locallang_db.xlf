@@ -50,6 +50,21 @@
 			<trans-unit id="tx_qxplay_fce.page.description">
 				<source>Create page teaser element, that read all necessary informations from the target page</source>
 			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.page.single">
+				<source>Single page</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.page.multiple">
+				<source>Multiple Pages</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.page.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.page.uid">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="tx_qxplay_fce.page.uids">
+				<source>Pages</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
