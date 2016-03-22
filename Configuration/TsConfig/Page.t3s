@@ -18,6 +18,22 @@ mod {
 	}
 }
 
+# Textpic - Werte vorbelegen
+TCAdefaults.tt_content {
+	imagewidth = 60
+	imageheight = 30
+	imagecols = 1
+	imageorient = 0
+}
+
+[globalVar = GP:defVals|tt_content|CType==image]
+	TCAdefaults.tt_content.imagewidth = 800
+[global]
+
+[globalVar = GP:defVals|tt_content|CType==textpic]
+	TCAdefaults.tt_content.imagewidth = 100
+[global]
+
 # ttContent Layouts
 TCEFORM.pages {
 	layout {
