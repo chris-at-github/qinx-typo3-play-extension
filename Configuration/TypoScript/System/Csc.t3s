@@ -82,16 +82,25 @@ tt_content.stdWrap.innerWrap.cObject {
 
 tt_content.image.20.1.file {
 	width >
-	width = 350
-	width.override = imagewidth
+	width = 780
+	width.override.field = imagewidth
 	width.override.if {
-		#value.field = imagewidth
-		equals = 100
+		value.field = imagewidth
+		isPositive = 1
 	}
 
 	height >
+	height = 438c
+	height.override.field = imageheight
+	height.override.if {
+		value.field = imageheight
+		isPositive = 1
+		negate = 1
+	}
+}
 
-#	height >
-#	height = 197c
-#	height.override.field = imageheight
+tt_content.textpic.20.1.file < tt_content.image.20.1.file
+tt_content.textpic.20.1.file {
+	width = 380
+	height = 214c
 }
