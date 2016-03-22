@@ -79,3 +79,13 @@ tt_content.stdWrap.innerWrap.cObject {
 		}
 	}
 }
+
+tt_content.image.20.1.file {
+	width >
+	width = 350
+	width.override.field = imagewidth
+
+	height >
+	height = 197c
+	height.override.field = imageheight
+}
